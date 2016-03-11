@@ -13,7 +13,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Fulfillment\\periscope-to-mysql\\": "src/"
+      "Fulfillment\\periscopeToMySQL\\": "src/"
     }
   }
 }

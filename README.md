@@ -12,7 +12,7 @@ You bet...
 
 ### Example
 
-```
+```php
 use Fulfillment\periscopeToSQL\periscopeToSQL;
 
 $args = [
@@ -33,46 +33,39 @@ $sql = 'SELECT
             AND [yourFirstTable.warehouse=Warehouse]
             AND [yourSecondTable.state=State]';
 
-$p2s = new periscopeToSQL();
-$sql = $p2s->fillTemplate($sql, $args);
+$sql = periscopeToSQL::fillTemplate($sql, $args);
 ```
 
 ###  Installation
 
-This project is still in development, install using Composer as follows
+WARNING: this project is still in development
 
-#### GIT
+#### Composer
 
+```sh
+composer require fulfillment/periscope-to-mysql
 ```
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/Fulfillment-dot-com/periscopeToSQL.git"
-    }
-  ],
-  "require": {
-    "fulfillment/periscopeToSQL": "dev-dev"
-  }
+
+```json
+"require": {
+    "fulfillment/periscope-to-mysql": "dev-master"
+}
 ```
 
 #### Local
 
-```
-  "repositories": [
+```json
+"repositories": [
     {
-      "type": "path",
-      "url": "../periscopeToSQL"
+        "type": "path",
+        "url": "../periscope-to-mysql"
     }
-  ],
-  "require": {
-    "fulfillment/periscopeToSQL": "dev-dev"
-  }
+],
+"require": {
+    "fulfillment/periscope-to-mysql": "dev-master"
+}
 ```
-
-### Version
-
-0.1
 
 ### Contribute
 
-Feel free, time zone support may be a good place.
+Feel free, time zone support may be a good place to start.

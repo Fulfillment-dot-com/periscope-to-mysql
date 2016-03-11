@@ -4,13 +4,13 @@ class periscopeToMySQL {
 
 	public static function fillTemplate($template, $fields) {
 
-		if (preg_match('/\[([a-z\_]+)\:est\]/i', $template, $matches)) {
+		if (preg_match('/\[([a-z\_.]+)\:est\]/i', $template, $matches)) {
 			$replacement = '(date_add(' . $matches[1] . ', interval -5 hour))';
 			$replace     = '[' . $matches[1] . ':est]';
 			$template    = str_replace($replace, $replacement, $template);
 		}
 
-		if (preg_match('/\[([a-z\_]+)\=daterange(:est)?\]/i', $template, $matches)) {
+		if (preg_match('/\[([a-z\_.]+)\=daterange(:est)?\]/i', $template, $matches)) {
 
 			$start = abs(strtotime($fields['dateStart']) + (60 * 60 * 5) - time());
 			$end   = abs(strtotime($fields['dateEnd']) + (60 * 60 * 5) - time());

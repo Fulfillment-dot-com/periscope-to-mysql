@@ -23,7 +23,7 @@ $args = [
 ];
 
 $sql = 'SELECT
-            yourFirstTable.*,
+            [yourFirstTable.aDate:est] AS aDate,
             yourSecondTable.part2
         FROM
             yourFirstTable

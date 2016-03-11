@@ -1,4 +1,4 @@
-# periscopeToSQL
+# periscopeToMySQL
 
 periscopedata.com is a powerful and useful tool for generating reports, but sometimes I want to put what I write in Periscope to use elsewhere. This package allows you to write once but generate MySQL statements with filters and daterange within PHP.
 
@@ -13,7 +13,7 @@ You bet...
 ### Example
 
 ```php
-use Fulfillment\periscopeToSQL\periscopeToSQL;
+use Fulfillment\periscopeToMySQL\periscopeToMySQL;
 
 $args = [
     'dateStart' => "2016-01-01",
@@ -33,7 +33,7 @@ $sql = 'SELECT
             AND [yourFirstTable.warehouse=Warehouse]
             AND [yourSecondTable.state=State]';
 
-$sql = periscopeToSQL::fillTemplate($sql, $args);
+$sql = periscopeToMySQL::fillTemplate($sql, $args);
 ```
 
 ###  Installation

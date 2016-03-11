@@ -1,6 +1,6 @@
-<?php  namespace Fulfillment\periscopeToSQL;
+<?php  namespace Fulfillment\periscopeToMySQL;
 
-class periscopeToSQL {
+class periscopeToMySQL {
 
 	public static function fillTemplate($template, $fields) {
 
@@ -44,7 +44,7 @@ class periscopeToSQL {
 				} else {
 					$replacement = $matches[1];
 
-					if (periscopeToSQL::isRepeating($value)) {
+					if (periscopeToMySQL::isRepeating($value)) {
 						$replacement .= ' IN (' . $value . ')';
 					} else {
 						$replacement .= ' = ' . $value;

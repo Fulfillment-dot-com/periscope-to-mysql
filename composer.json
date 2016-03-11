@@ -1,6 +1,6 @@
 {
   "name": "fulfillment/periscope-to-mysql",
-  "description": "",
+  "description": "Take your Periscope SQL and generate MySQL statements.",
   "authors": [
     {
       "name": "Mike Garde",
@@ -12,7 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Fulfillment\\periscopeToSQL\\" : "src"
+      "Fulfillment\\periscope-to-mysql\\" : "src"
     }
   }
 }

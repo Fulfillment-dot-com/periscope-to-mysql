@@ -2,7 +2,7 @@
 
 class periscopeToSQL {
 
-	function fillTemplate($template, $fields) {
+	public static function fillTemplate($template, $fields) {
 
 		if (preg_match('/\[([a-z\_]+)\:est\]/i', $template, $matches)) {
 			$replacement = '(date_add(' . $matches[1] . ', interval -5 hour))';
@@ -44,7 +44,7 @@ class periscopeToSQL {
 				} else {
 					$replacement = $matches[1];
 
-					if ($this->isRepeating($value)) {
+					if (periscopeToSQL::isRepeating($value)) {
 						$replacement .= ' IN (' . $value . ')';
 					} else {
 						$replacement .= ' = ' . $value;
@@ -58,7 +58,7 @@ class periscopeToSQL {
 		return $template;
 	}
 
-	function isRepeating($value) {
+	public static function isRepeating($value) {
 
 		if (preg_match('/^[0-9,]+,[0-9]+$/', $value)) {
 			return true;

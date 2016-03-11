@@ -2,7 +2,7 @@
 
 class periscopeToSQL {
 
-	function get($template, $fields) {
+	function fillTemplate($template, $fields) {
 
 		if (preg_match('/\[([a-z\_]+)\:est\]/i', $template, $matches)) {
 			$replacement = '(date_add(' . $matches[1] . ', interval -5 hour))';
@@ -12,8 +12,8 @@ class periscopeToSQL {
 
 		if (preg_match('/\[([a-z\_]+)\=daterange(:est)?\]/i', $template, $matches)) {
 
-			$start = abs(strtotime($fields['from_date']) + (60 * 60 * 5) - time());
-			$end   = abs(strtotime($fields['to_date']) + (60 * 60 * 5) - time());
+			$start = abs(strtotime($fields['dateStart']) + (60 * 60 * 5) - time());
+			$end   = abs(strtotime($fields['dateEnd']) + (60 * 60 * 5) - time());
 			$start = floor($start / (60 * 60 * 24));
 			$end   = floor($end / (60 * 60 * 24)) - 1; // minus 1 for end-of-day
 

@@ -44,7 +44,7 @@ class periscopeToSQL {
 				} else {
 					$replacement = $matches[1];
 
-					if (isRepeating($value)) {
+					if ($this->isRepeating($value)) {
 						$replacement .= ' IN (' . $value . ')';
 					} else {
 						$replacement .= ' = ' . $value;

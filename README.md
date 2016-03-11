@@ -1,1 +1,78 @@
 # periscopeToSQL
+
+periscopedata.com is a powerful and useful tool for generating reports, but sometimes I want to put what I write in Periscope to use elsewhere. This package allows you to write once but generate MySQL statements with filters and daterange within PHP.
+
+### Limits
+
+You bet...
+
+* UTC is assumed to be used by your DB
+* Always converts to EST
+* Unaware of foreign keys = unable to automatically join tables
+
+### Example
+
+```
+use Fulfillment\periscopeToSQL\periscopeToSQL;
+
+$args = [
+    'dateStart' => "2016-01-01",
+    'dateEnd'   => "2016-03-11",
+    'Warehouse' => "1,2,3",
+    'State'     => "GA",
+];
+
+$sql = 'SELECT
+            yourFirstTable.*,
+            yourSecondTable.part2
+        FROM
+            yourFirstTable
+            JOIN yourSecondTable ON yourFirstTable.id = yourSecondTable.id
+        WHERE
+            [yourFirstTable.recordedOn=daterange:est]
+            AND [yourFirstTable.warehouse=Warehouse]
+            AND [yourSecondTable.state=State]';
+
+$p2s = new periscopeToSQL();
+$sql = $p2s->fillTemplate($sql, $args);
+```
+
+###  Installation
+
+This project is still in development, install using Composer as follows
+
+#### GIT
+
+```
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/Fulfillment-dot-com/periscopeToSQL.git"
+    }
+  ],
+  "require": {
+    "fulfillment/periscopeToSQL": "dev-dev"
+  }
+```
+
+#### Local
+
+```
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../periscopeToSQL"
+    }
+  ],
+  "require": {
+    "fulfillment/periscopeToSQL": "dev-dev"
+  }
+```
+
+### Version
+
+0.1
+
+### Contribute
+
+Feel free, time zone support may be a good place.
